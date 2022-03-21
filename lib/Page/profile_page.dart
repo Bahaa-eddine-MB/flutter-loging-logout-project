@@ -41,30 +41,30 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           Container(
             margin: EdgeInsets.only(top: 16, right: 16),
-            child: Stack(
-              children: <Widget>[
-                Icon(Icons.notifications),
-                Positioned(
-                  right: 0,
-                  child: Container(
-                    padding: EdgeInsets.all(1),
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    constraints: BoxConstraints(
-                      minWidth: 12,
-                      minHeight: 12,
-                    ),
-                    child: Text(
-                      "0",
-                      style: TextStyle(color: Colors.white, fontSize: 8),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                )
-              ],
-            ),
+            // child: Stack(         //Notification
+            //   children: <Widget>[
+            //     Icon(Icons.notifications),
+            //     Positioned(
+            //       right: 0,
+            //       child: Container(
+            //         padding: EdgeInsets.all(1),
+            //         decoration: BoxDecoration(
+            //           color: Colors.red,
+            //           borderRadius: BorderRadius.circular(6),
+            //         ),
+            //         constraints: BoxConstraints(
+            //           minWidth: 12,
+            //           minHeight: 12,
+            //         ),
+            //         child: Text(
+            //           "0",
+            //           style: TextStyle(color: Colors.white, fontSize: 8),
+            //           textAlign: TextAlign.center,
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // ),
           )
         ],
       ),

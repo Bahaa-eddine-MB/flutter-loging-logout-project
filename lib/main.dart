@@ -13,15 +13,15 @@ class LoginDoctell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color _PrimaryColor = HexColor("#397EF5");
-    Color _accentColor = HexColor("#AF62F2");
+    Color _accentColor = Colors.lightBlueAccent;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Login Logout Page',
       theme: ThemeData(
         primaryColor: _PrimaryColor,
         scaffoldBackgroundColor: Colors.grey.shade100, 
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _accentColor),
         primarySwatch: Colors.grey,
-        
       ),
       home: const SplashScreen(title: 'Doctell Login Page'),
     );

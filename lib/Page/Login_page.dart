@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Page/choose_type.dart';
 import 'package:flutter_application_1/Page/profile_page.dart';
 import 'package:flutter_application_1/common/them_helper.dart';
 import 'Registration_page.dart';
@@ -61,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                               TextFormField(
                                 
                                 decoration: ThemHelper().textInputDecoration(
-                                    'User Name', 'Enter your user name'),
+                                 'User Name', 'Enter your user name'),
                               validator: (val) {
                               if (val!.isEmpty) {
                                 return "Please enter your user name";
@@ -143,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    RegistrationPage()));
+                                                    chooseType()));
                                       },
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
