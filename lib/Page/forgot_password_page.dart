@@ -17,15 +17,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _headerHeight = 300;
+      double h = MediaQuery.of(context).size.height;
+      double w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                height: _headerHeight,
-                child: HeaderWidget(_headerHeight, true, Icons.password_rounded),
+                height: h*0.35,
+                child: HeaderWidget(h*0.35, true, Icons.password_rounded),
               ),
               SafeArea(
                 child: Container(
@@ -48,7 +49,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: h*0.02,),
                             Text('Enter the email address associated with your account.',
                               style: TextStyle(
                                 // fontSize: 20,
@@ -57,7 +58,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: h*0.02,),
                             Text('We will email you a verification code to check your authenticity.',
                               style: TextStyle(
                                 color: Colors.black38,
@@ -68,7 +69,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: h*0.05),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -88,7 +89,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               ),
                               decoration: ThemHelper().inputBoxDecorationShaddow(),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: h*0.05 ),
                             Container(
                               decoration: ThemHelper().buttonBoxDecoration(context),
                               child: ElevatedButton(
@@ -116,7 +117,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: h*0.035),
                             Text.rich(
                               TextSpan(
                                 children: [

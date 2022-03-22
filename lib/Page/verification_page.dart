@@ -14,20 +14,22 @@ class VerificationPage extends StatefulWidget {
 }
 
 class _VerificationPageState extends State<VerificationPage> {
+  
    final _formKey = GlobalKey<FormState>();
   bool _pinSuccess = false;
   @override
   Widget build(BuildContext context) {
-        double _headerHeight = 300;
+      double h = MediaQuery.of(context).size.height;
+      double w = MediaQuery.of(context).size.width;
     return Scaffold(
               backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                height: _headerHeight,
+                height: h*0.35,
                 child: HeaderWidget(
-                    _headerHeight, true, Icons.privacy_tip_outlined),
+                  h*0.35, true, Icons.privacy_tip_outlined),
               ),
               SafeArea(
                 child: Container(
@@ -50,7 +52,7 @@ class _VerificationPageState extends State<VerificationPage> {
                               ),
                               // textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(height: h*0.02,),
                             Text(
                               'Enter the verification code we just sent you on your email address.',
                               style: TextStyle(
@@ -63,14 +65,14 @@ class _VerificationPageState extends State<VerificationPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: h*0.08),
                       Form(
                         key: _formKey,
                         child: Column(
                           children: <Widget>[
                             OTPTextField(
                               length: 4,
-                              width: 300,
+                              width: w,
                               fieldWidth: 50,
                               style: TextStyle(
                                   fontSize: 30
@@ -83,7 +85,7 @@ class _VerificationPageState extends State<VerificationPage> {
                                 });
                               },
                             ),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: h*0.06),
                             Text.rich(
                               TextSpan(
                                 children: [
@@ -114,7 +116,7 @@ class _VerificationPageState extends State<VerificationPage> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: h*0.05),
                             Container(
                               decoration: _pinSuccess ? ThemHelper().buttonBoxDecoration(context):ThemHelper().buttonBoxDecoration(context, "#AAAAAA","#757575"),
                               child: ElevatedButton(

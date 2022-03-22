@@ -15,11 +15,12 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  double _drawerIconSize = 24;
-  double _drawerFontSize = 17;
+  
 
   @override
   Widget build(BuildContext context) {
+      double h = MediaQuery.of(context).size.height;
+      double w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,13 +31,16 @@ class _ProfilePageState extends State<ProfilePage> {
         iconTheme: IconThemeData(color: Colors.white),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Theme.of(context).primaryColor,
-                Theme.of(context).colorScheme.secondary
-              ])),
+              // gradient: LinearGradient(
+              //     begin: Alignment.topLeft,
+              //     end: Alignment.bottomRight,
+              //     colors: <Color>[
+              //   Theme.of(context).primaryColor,
+              //   Theme.of(context).colorScheme.secondary
+              // ]
+              // )
+              color: Theme.of(context).primaryColor
+              ),
         ),
         actions: [
           Container(
@@ -70,16 +74,16 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [0.0, 1.0],
-            colors: [
-              Theme.of(context).primaryColor.withOpacity(0.1),
-              Theme.of(context).colorScheme.secondary.withOpacity(0.4),
-            ],
-          )),
+          // decoration: BoxDecoration(
+          //     gradient: LinearGradient(
+          //   begin: Alignment.topLeft,
+          //   end: Alignment.bottomRight,
+          //   stops: [0.0, 1.0],
+          //   colors: [
+          //     Theme.of(context).primaryColor.withOpacity(0.1),
+          //     Theme.of(context).colorScheme.secondary.withOpacity(0.4),
+          //   ],
+          // )),
           child: ListView(
             children: [
               DrawerHeader(
@@ -109,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ListTile(
                 leading: Icon(
                   Icons.screen_lock_landscape_rounded,
-                  size: _drawerIconSize,
+                  size: h*0.04  ,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -128,12 +132,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
               ListTile(
                 leading: Icon(
                   Icons.login_rounded,
-                  size: _drawerIconSize,
+                  size: h*0.04,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -148,12 +152,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
               ListTile(
                 leading: Icon(
                   Icons.person_add_alt_1,
-                  size: _drawerIconSize,
+                  size: h*0.04,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -170,12 +174,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
               ListTile(
                  leading: Icon(
                   Icons.password_rounded,
-                  size: _drawerIconSize,
+                  size: h*0.04,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -190,12 +194,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
               ListTile(
                  leading: Icon(
                   Icons.verified_user_sharp,
-                  size: _drawerIconSize,
+                  size: h*0.04,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -211,12 +215,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
               ListTile(
                 leading: Icon(
                   Icons.logout_rounded,
-                  size: _drawerIconSize,
+                  size: h*0.04,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(
@@ -231,7 +235,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Divider(
                 color: Theme.of(context).primaryColor,
-                height: 1,
+                height: h*0.0001,
               ),
             ],
           ),
@@ -241,8 +245,8 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Stack(
           children: [
             Container(
-              height: 100,
-              child: HeaderWidget(100, false, Icons.house_rounded),
+              height: h*0.15,
+              child: HeaderWidget(h*0.15, false, Icons.house_rounded),
             ),
             Container(
               alignment: Alignment.center,
@@ -264,26 +268,26 @@ class _ProfilePageState extends State<ProfilePage> {
                         ]),
                     child: Icon(
                       Icons.person,
-                      size: 80,
+                      size: h*0.13,
                       color: Colors.grey.shade400,
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: h*0.03,
                   ),
                   Text(
                     "Bahaa Eddine",
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: h*0.03,
                   ),
                   Text(
                     "A doctor",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: h*0.03,
                   ),
                   Container(
                     padding: EdgeInsets.all(10),
@@ -358,5 +362,4 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  forgotPasswordPage() {}
 }

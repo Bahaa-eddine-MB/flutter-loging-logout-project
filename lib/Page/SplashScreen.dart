@@ -6,13 +6,17 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key, required this.title}) : super(key: key);
 
   final String title;
+  
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
+
 class _SplashScreenState extends State<SplashScreen> {
+
   bool _isVisible = false;
+
   _SplashScreenState() {
     new Timer(const Duration(milliseconds: 2000), () {
       setState(() {
@@ -30,7 +34,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
+  
   Widget build(BuildContext context) {
+      double h = MediaQuery.of(context).size.height;
+      double w = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: new BoxDecoration(
           gradient: new LinearGradient(
@@ -47,28 +55,20 @@ class _SplashScreenState extends State<SplashScreen> {
         opacity: _isVisible ? 1.0 : 0,
         duration: Duration(milliseconds: 1200),
         child: Center(
-          child: Container(
-            height: 140.0,
-            width: 140.0,
-            child: Center(
-              // child: ClipOval(
-                child: Image(
-                  image: AssetImage('img/Logo.png',),
-                ),
-                // child: Icon(Icons.android_outlined,size:128),
-              // ),
-            ),
-            // decoration: BoxDecoration(
-            //     shape: BoxShape.circle,
-            //     color: Colors.white,
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.black.withOpacity(0.3),
-            //         blurRadius: 2.0,
-            //         offset: Offset(5.0, 3.0),
-            //         spreadRadius: 2.0,
-            //       )
-            //     ]),
+          
+        child: 
+              Container(
+                height: h*0.3,
+                width: w*0.3,
+                child: Center(
+                  // child: ClipOval(
+                    child: Image(
+                      image: AssetImage('img/logosplash.png',),
+                    ),
+                    // child: Icon(Icons.android_outlined,size:128),
+                  // ),
+                ),  
+             
           ),
         ),
       ),
