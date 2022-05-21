@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cote_pat/Page/Registration_page.dart';
-import 'package:cote_pat/Page/Registration_pageForPat.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../common/them_helper.dart';
+import 'package:flutter_application_2/Page/Registration_pageForPat.dart';
+import 'package:flutter_application_2/common/them_helper.dart';
+import 'package:flutter_application_2/homepage.dart';
 import 'Widgets/Header_widget.dart';
 import 'forgot_password_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -111,11 +111,6 @@ class _LoginPageState extends State<LoginPage> {
                                       if (val!.isEmpty) {
                                         return "Please enter your email";
                                       }
-                                           if (!(val!.isEmpty) &&
-                                  !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                                      .hasMatch(val)) {
-                                return "Enter a valid email address";
-                              }
                                       return null;
                                     },
                                   ),
@@ -219,7 +214,11 @@ class _LoginPageState extends State<LoginPage> {
 
                                             print(
                                                 "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
-                                            if (exist==false) {
+                                          if (!FirebaseAuth.instance
+                                                .currentUser!.emailVerified) {
+                                              Navigator.pushReplacementNamed(
+                                                  context, "verify");}
+                                          else if (exist==false) {
                                               Navigator.of(context).pop();
                                               Navigator.pushReplacementNamed(
                                                   context, "adress");
@@ -232,12 +231,8 @@ class _LoginPageState extends State<LoginPage> {
                                                 ) {
                                               Navigator.pushReplacementNamed(
                                                   context, "splash");
-                                            } else if (!FirebaseAuth.instance
-                                                .currentUser!.emailVerified) {
-                                              Navigator.pushReplacementNamed(
-                                                  context, "verify");
-                                            
-                                            } 
+                                            }                                            
+                                             
                                           } on FirebaseAuthException catch (e) {
                                             if (e.code == 'user-not-found') {
                                               Navigator.of(context).pop();
